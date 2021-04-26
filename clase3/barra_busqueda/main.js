@@ -25,7 +25,7 @@ function BarraBusqueda(opciones) {
     let aux_el = null;
 
     ulDestino.innerHTML = ''
-
+    
     datos
       .filter(function(valor){
         /*
