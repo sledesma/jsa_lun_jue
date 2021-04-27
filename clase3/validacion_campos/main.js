@@ -1,30 +1,25 @@
-/**
- * AMBITO GLOBAL
-**/
-let Validaciones = {};
+const campos = [
+  'numEdad',
+  'txtNombre',
+  'campo2',
+  'campoNumero'
+];
 
+CampoRequerido(document.querySelector('#numEdad'))
+CampoRequerido(document.querySelector('#txtNombre'))
+CampoRequerido(document.querySelector('#campo2'))
+CampoNumero(document.querySelector('#campoNumero'))
 
-/**
- * Nombre: CampoRequerido
- * Descripcion: validar si un campo está vacío o no al momento de pasar al siguiente campo
- * Opciones:
- *    campo (DOM Element)
- */
-function CampoRequerido(campo) {
-  // Eventos
+document.querySelector('#btnValidar').onclick = function() {
+  let esValido = true;
 
-  /**
-   * Event (Event): blur
-   * Target (EventTarget): campo
-   * Callback (EventTarget): validar si está vacío o no
-   */
-  campo.addEventListener('blur', function(){
-    if(campo.value == '') {
-      Validaciones[campo.id] = false
-    } else {
-      Validaciones[campo.id] = true
+  campos.forEach(function(campo){
+    if(Validaciones[campo] === undefined ||
+    Validaciones[campo] === false) {
+      esValido = false;
     }
-  });
+  })
+
+  console.log("¿Es valido?"+esValido);
 
 }
-

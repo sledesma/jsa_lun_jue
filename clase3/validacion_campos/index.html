@@ -10,18 +10,12 @@
   <input type="number" name="" id="numEdad">
   <input type="text" name="" id="txtNombre">
   <input type="text" id="campo2">
+  <input type="text" id="campoNumero">
 
   <button id="btnValidar">Validar Formulario</button>
 
+  <script src="CampoRequerido.js"></script>
   <script src="main.js"></script>
-  <script>
-    CampoRequerido(document.querySelector('#numEdad'))
-    CampoRequerido(document.querySelector('#txtNombre'))
-    CampoRequerido(document.querySelector('#campo2'))
-
-    document.querySelector('#btnValidar').onclick = function() {
-      console.log(Validaciones);
-    }
-  </script>
-</body>
+</body> 
 </html>
+
