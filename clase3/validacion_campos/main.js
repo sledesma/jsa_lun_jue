@@ -7,7 +7,7 @@ const campos = [
 
 CampoRequerido(document.querySelector('#numEdad'))
 CampoRequerido(document.querySelector('#txtNombre'))
-CampoRequerido(document.querySelector('#campo2'))
+CampoRequerido(document.querySelector('#numEdad'))
 CampoNumero(document.querySelector('#campoNumero'))
 
 document.querySelector('#btnValidar').onclick = function() {
