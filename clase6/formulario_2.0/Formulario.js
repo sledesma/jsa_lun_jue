@@ -1,5 +1,5 @@
 const filezone = document.querySelectorAll('.filezone');
-const btnEnviar = document.querySelector('button');
+const formulario = document.querySelector('form');
 
 const archivosSubidos = [];
 
@@ -35,7 +35,7 @@ filezone.forEach(function(fz){
   });
 })
 
-btnEnviar.addEventListener('click', function(){
+formulario.addEventListener('submit', function(){
   const xhr = new XMLHttpRequest();
   const fd = new FormData();
 
