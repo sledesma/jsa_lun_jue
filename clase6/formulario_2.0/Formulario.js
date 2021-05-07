@@ -35,7 +35,8 @@ filezone.forEach(function(fz){
   });
 })
 
-formulario.addEventListener('submit', function(){
+formulario.addEventListener('submit', function(e){
+  e.preventDefault();
   const xhr = new XMLHttpRequest();
   const fd = new FormData();
 
