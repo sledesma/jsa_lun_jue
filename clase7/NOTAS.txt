@@ -1,0 +1,19 @@
+Una promesa en el mundo real:
+  - Trata sobre acciones futuras.
+  - Puede ser que se cumpla ...
+  - ... puede que no
+  - Hay consecuencias para cada situación
+
+Una promesa en código (ni siquiera en JS):
+  - Una operación asincrónica
+  - Que puede ser resuelta o rechazada
+  - Hay consecuencias (callbacks) que suceden (se invocan) ante los determinados estados
+
+Casos de uso genéricos:
+  - Optimizar operaciones asincrónicas encadenadas
+  - Crear operaciones asincrónicas
+  - Uso de APIs del lenguaje que utilicen promesas
+
+
+PWA <- Cache <- Js <- Promesas
+Superar CORS <- API Fetch <- Promesas
