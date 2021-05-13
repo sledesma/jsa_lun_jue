@@ -34,10 +34,14 @@ function FormHero({ formulario, validations, onSubmit }) {
 		});
 	};
 
-  this.validate = function({ type, field }) {
-    switch(type) {
+  this.validate = function({ filter, field }) {
+    switch(filter.type) {
       case 'required':
         field.isValid = field.dom.value != ''
+        break;
+
+      case 'min':
+        field.isValid = field.dom.value.length >= filter.params
         break;
     }
   }
@@ -47,7 +51,7 @@ function FormHero({ formulario, validations, onSubmit }) {
       f.validations.forEach(val => {
         f.dom.addEventListener(val.on, (e) => {
           this.validate({
-            type: val.filter,
+            filter: val.filter,
             field: f
           });
 

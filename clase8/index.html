@@ -46,25 +46,52 @@
         { 
           selector: '#frm1_nombre', 
           validations: [ 
-            { on: 'blur', filter: 'required' } 
+            { 
+              on: 'blur', 
+              filter: {
+                type: 'required'
+              } 
+            },
+            {
+              on: 'blur',
+              filter: {
+                type: 'min',
+                params: 5
+              }
+            }
           ] 
         },
         { 
           selector: '#frm1_email', 
-          validations: [
-            { on: 'blur', filter: 'required' }
+          validations: [ 
+            { 
+              on: 'blur', 
+              filter: {
+                type: 'required'
+              } 
+            } 
           ] 
         },
         { 
           selector: '#frm1_asunto', 
-          validations: [
-            { on: 'blur', filter: 'required' }
+          validations: [ 
+            { 
+              on: 'blur', 
+              filter: {
+                type: 'required'
+              } 
+            } 
           ] 
         },
         { 
           selector: '#frm1_mensaje', 
-          validations: [
-            { on: 'blur', filter: 'required' }
+          validations: [ 
+            { 
+              on: 'blur', 
+              filter: {
+                type: 'required'
+              } 
+            } 
           ] 
         },
       ],
