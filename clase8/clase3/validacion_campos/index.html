@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="number" name="" id="numEdad" />
+		<input type="text" name="" id="txtNombre" />
+		<input type="text" id="campo2" />
+		<input type="text" id="campoNumero" />
+
+		<button id="btnValidar">Validar Formulario</button>
+
+		<script src="CampoRequerido.js"></script>
+		<script src="main.js"></script>
+
+		<!--		<script src="CampoValidado.js"></script>
+		<script>
+			const campos = ["numEdad", "txtNombre", "campo2", "campoNumero"];
+
+			CampoValidado({
+        campo: document.querySelector("#numEdad"),
+        evento: 'blur',
+        validacion: function(val) {
+          return val == '';
+        }
+      });
+      CampoValidado({
+        campo: document.querySelector("#campoNumero"),
+        evento: 'blur',
+        validacion: function(val) {
+          const r = new RegExp(/\d/);
+          return r.test(val);
+        }
+      });
+
+			document.querySelector("#btnValidar").onclick = function () {
+				let esValido = true;
+
+				campos.forEach(function (campo) {
+					if (
+						Validaciones[campo] === undefined ||
+						Validaciones[campo] === false
+					) {
+						esValido = false;
+					}
+				});
+
+				console.log("¿Es valido?" + esValido);
+			};
+		</script>
+
+    -->
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    /*
+     * API Promise
+     * (aporta al ámbito global):
+     * F (funciones):
+     * E (eventos):
+     * O (objetos): Promise
+    **/
+    console.log('Primero')
+    // 1. Declararla => ¿CUANDO esta resuelta o rechazada?
+    const pedirJson = new Promise(function(resolver, rechazar){
+      console.log('Segundo')
+      resolver(12); // La promesa estará resuelta
+    });
+    
+
+    // 2. Usarla => ¿QUE SUCEDE en caso de estar resuelta o rechazada?
+    pedirJson.then(function(resultado){
+      console.log('Tercero' + resultado)
+    });
+
+    pedirJson.catch(function(razon){
+      console.log(razon);
+    });
+
+    console.log('Cuarto')
+
+  </script>
+</body>
+</html>

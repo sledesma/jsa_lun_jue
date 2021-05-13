@@ -1,0 +1,25 @@
+ARQUITECTURA (de software)
+
+- El modelo más general
+- La organización más elemental y básica de un proyecto
+- La estrategia fundamental
+- El paradigma más básico para resolver un problema
+
+
+
+Crear una aplicación para análisis de censos
+
+
+codifico la desviación estandar
+codificar la media
+codifico las correlaciones
+
+
+TECNICAS DE ESTUDIO
+
+- Base de datos
+- Tiene que tener una interfaz de usuario
+- Hay cálculos y procesos intermedios
+- Las tres cosas previamente mencionadas, DEBEN SER INDEPENDIENTES LAS UNAS DE LAS OTRAS
+
+-Arquitectura Modelo-Vista-Controlador-

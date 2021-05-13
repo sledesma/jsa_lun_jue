@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button>Cargar Planeta</button>
+  <script>
+    function loadScript(scriptUrl, scriptLoaded) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', scriptUrl);
+      xhr.send();
+      xhr.addEventListener('load', function(){
+        const script = document.createElement('script');
+        script.innerHTML = xhr.response;
+        document.body.appendChild(script);
+        scriptLoaded();
+      });
+    }
+
+    loadScript('api.js', function(){
+      loadScript('main.js', function(){
+        console.log('TODO OK');
+      });
+    });
+    
+  </script>
+  <!--Optimizar el rendimiento-->
+</body>
+</html>

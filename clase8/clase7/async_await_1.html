@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    /**
+     * ASYNC y AWAIT es una SINTAXIS ALTERNATIVA para CREAR y USAR promesas
+    **/
+
+    function sumar(n1, n2) {
+      return n1 + n2;
+    }
+
+    /*
+    function asyncSumar(n1, n2) {
+      return new Promise(function(r){
+        r(n1 + n2);
+      });
+    }
+
+    ES REEMPLAZADA POR
+    */
+    async function asyncSumar(n1, n2) {
+      return n1 + n2;
+    }
+
+
+    function restar(n1, n2) {
+      return n1 - n2;
+    }
+
+    /*
+    function asyncRestar(n1, n2) {
+      return new Promise(function(r){
+        r(n1 - n2);
+      });
+    }
+
+    ES REEMPLAZADO POR
+    */
+
+    async function asyncRestar(n1, n2) {
+      return n1 - n2
+    }
+
+
+    async function stats(n1, n2) {
+      const suma = await asyncSumar(n1, n2); // await = esperar
+
+      const resta = await asyncRestar(n1, n2);
+
+      return {
+        suma: suma,
+        resta: resta
+      }
+    }
+
+    stats(20, 30)
+    .then(function(s){
+      console.log(s);
+    })
+
+  </script>
+</body>
+</html>

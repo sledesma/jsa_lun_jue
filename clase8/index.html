@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form action="/contacto" method="POST" id="frm1">
+  
+    <div>
+      Nombre: 
+      <input type="text" name="nombre" id="frm1_nombre">
+    </div>
+
+    <div>
+      Email: 
+      <input type="text" name="email" id="frm1_email">
+    </div>
+
+    <div>
+      Asunto: 
+      <input type="text" name="asunto" id="frm1_asunto">
+    </div>
+
+    <div>
+      Mensaje: 
+      <textarea name="mensaje"  id="frm1_mensaje" cols="30" rows="10"></textarea>
+    </div>
+    <button>Enviar</button>
+  </form>
+
+  <script src="FormHero.js"></script>
+  <script>
+    // Parecido al DICCIONARIO de Python
+    // Objeto = Conjunto de PROPIEDADES
+    // Propiedad = Par Clave / Valor
+    // Clave: Valor
+
+    // Valor Pertenece a los Tipos de Dato
+    new FormHero({
+      formulario: '#frm1',
+      validations: [
+        { 
+          selector: '#frm1_nombre', 
+          validations: [ 
+            { on: 'blur', filter: 'required' } 
+          ] 
+        },
+        { 
+          selector: '#frm1_email', 
+          validations: [
+            { on: 'blur', filter: 'required' }
+          ] 
+        },
+        { 
+          selector: '#frm1_asunto', 
+          validations: [
+            { on: 'blur', filter: 'required' }
+          ] 
+        },
+        { 
+          selector: '#frm1_mensaje', 
+          validations: [
+            { on: 'blur', filter: 'required' }
+          ] 
+        },
+      ],
+      onSubmit: function(estado, evt) {
+        evt.preventDefault();
+        console.log(estado);
+      }
+    })
+  </script>
+</body>
+</html>
