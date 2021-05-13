@@ -17,6 +17,14 @@ function FormHero({ formulario, validations, onSubmit }) {
 			
       this.isValid = true;
 
+      const invalid = 
+        this.fields.find(val => {
+          return val.isValid === false
+        })
+      
+      if(invalid)
+        this.isValid = false;
+
       for (const f in this.fields) {
         if(f.isValid === false)
           this.isValid = false;
