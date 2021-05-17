@@ -4,7 +4,7 @@ namespace Productos {
 
   public class Producto {
 
-    public int id {get; set;}
+    private int id {get; set;}
 
     public string nombre {get; set;}
 
