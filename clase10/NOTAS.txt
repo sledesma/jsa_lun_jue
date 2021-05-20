@@ -1,0 +1,109 @@
+
+    /**
+     * ¿QUE ES PATRONES?
+     * ESTRATEGIAS PARA RESOLVER PROBLEMAS DE CODIGO
+     * 
+     * Estatica (lo que los elementos son - foto) - PATRONES CREACIONALES
+     * Dinamica (como los elementos se comportan en el tiempo - maquina de estados) - PATRONES ESTRUCTURALES
+     * Funcional (como los elementos procesan las operaciones) - PATRONES COMPORTAMIENTO
+     * 
+     * 1. CREACIONALES => ¿Como creo nuevos objetos?
+     *    Inyeccion de Dependencias / Factory
+     * 2. ESTRUCTURALES => ¿Como relaciono objetos?
+     *    Decorator
+     * 3. COMPORTAMIENTO => ¿Como operan los objetos?
+    **/
+
+    /*
+    // Ejemplo Creacionales - Inyeccion de Dependencias / Factory
+    class Domicilio {
+      constructor(pais, ciudad) {
+        this.pais = pais;
+        this.ciudad = ciudad;
+      }
+    }
+
+    class Persona {
+
+      constructor(domicilio) {
+        this.dom = domicilio;
+      }
+
+    }
+
+    class CreadorPersonasCABA {
+      constructor() {
+        this.domicilio = new Domicilio('argentina', 'caba');
+      }
+
+      buildPersona() {
+        return new Persona(this.domicilio);
+      }
+    }
+    */
+
+    /*
+    // Ejemplo Estructurales - Decorator
+
+    class Cliente {
+      constructor(nombre, pais, ciudad) {
+        this.nombre = nombre;
+        this.pais = pais;
+        this.ciudad = ciudad;
+      }
+    }
+
+    class ClienteCABA extends Cliente {
+      constructor(nombre) {
+        super(nombre, 'Argentina', 'CABA');
+      }
+    }
+
+    function Jsonable(objeto) {
+      objeto.toJson = function() {
+        return JSON.stringify(this);
+      }
+      return objeto;
+    }
+
+    const andresCaba = Jsonable(new ClienteCABA('Andres'));
+    console.log(andresCaba);
+    */
+
+    /*
+    // Ejemplo de Comportamiento - Mediator
+
+    class Personaje {
+      constructor(vida) {
+        this.vida = vida
+      }
+
+      esAtacado() {
+        this.vida -= 10;
+      }
+    }
+
+    class Jugador extends Personaje {
+      constructor() {
+        super(100);
+      }
+    }
+
+    class Enemigo extends Personaje {
+      constructor() {
+        super(100);
+      }
+    }
+
+    // Mediator
+    class Juego {
+      constructor(jugador, enemigo) {
+        this.jugador = jugador;
+        this.enemigo = enemigo;
+      }
+
+      ataque(victima) {
+        victima.esAtacado();
+      }
+    }
+    */
