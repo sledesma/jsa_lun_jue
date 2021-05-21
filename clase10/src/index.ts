@@ -1,39 +1,47 @@
-interface INumeros {
-  n1: number;
-  n2: number;
-}
+import 'reflect-metadata';
 
-function sumar(calculadora: INumeros) {
-  calculadora.n1 = calculadora.n1 + calculadora.n2;
-}
-
-function leer(calculadora: INumeros) {
-  return calculadora.n1
-}
-
-
-const numeros: INumeros = (function(constructor){
-  
-  let nros: INumeros = null;
-
-  if(nros == null) {
-    nros = new constructor(2, 2);
+function Log(): ClassDecorator {
+  return (target) => {
+    console.log('Creando:', target);
   }
+}
 
-  return nros;
+interface IClienteOptions {
+  nombre: string;
+}
 
-})(class aux implements INumeros {
-  n1: number;
-  n2: number;
-
-  constructor(n1: number, n2: number) {
-    console.log('Construyendo números...');
-    this.n1 = n1;
-    this.n2 = n2;
+function Cliente(opciones: IClienteOptions): ClassDecorator {
+  return (traget) => {
+    Reflect.defineMetadata('NOMBRE_CLIENTE', opciones.nombre, traget);
+    console.log('Alta del cliente: ', opciones.nombre);
   }
+}
+
+@Cliente({
+  nombre: 'Carlos'
 })
+class CarlosAcosta {}
 
 
+class App {
 
-sumar(numeros)
-console.log(leer(numeros))
+  clientes: any[];
+
+  constructor(clientes: any[]) {
+    this.clientes = clientes;
+  }
+
+  verNombre() {
+    for (let i = 0; i < this.clientes.length; i++) {
+      const cli = this.clientes[i];
+      const nombre = Reflect.getMetadata('NOMBRE_CLIENTE', cli);
+      console.log(nombre);
+    }
+  }
+}
+
+const app = new App([
+  CarlosAcosta
+]);
+
+app.verNombre();
