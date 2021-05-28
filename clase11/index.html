@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="ProductoDAO.js"></script>
+  <script>
+    const dao = new ProductoDAO();
+    
+    dao.addEventListener('oninit', function(e){
+      console.log(e.adapter.getAll());
+    });
+
+    dao.init();
+  </script>
+  <script>
+    
+    
+   /*
+    function Producto(id, precio, nombre, material, descripcion) {
+      Object.defineProperty(this, 'id', {
+        get: function() {
+          return id;
+        },
+        set: function(val) {
+          console.log('¡¿Acaso quieres cambiar el ID por ', val ,'?!')
+        }
+      })
+    } 
+
+      function Producto(id, precio, nombre, material, descripcion) {
+    Object.defineProperties(this, {
+      'id': {
+        value: id,
+        writable: false
+      },
+      'precio': {
+        value: precio,
+        writable: false
+      },
+      'nombre': {
+        value: nombre,
+        writable: false
+      },
+      'material': {
+        value: material,
+        writable: false
+      },
+      'descripcion': {
+        value: descripcion,
+        writable: false
+      }
+    });
+  }
+    */
+  </script>
+</body>
+</html>

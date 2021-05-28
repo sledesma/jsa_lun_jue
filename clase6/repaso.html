@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .zona-archivo,
+    .zona-archivo-con-contenido {
+      width: 400px;
+      height: 200px;
+      border: 5px dotted black;
+
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .zona-archivo::before {
+      content: 'Arrastra aquí tus archivos';
+    }
+
+    .zona-archivo-over {
+      transition: 250ms;
+      padding: 30px;
+    }
+
+    .zona-archivo-over-out {
+      transition: 250ms;
+      padding: 0;
+    }
+
+    .zona-archivo-over::before {
+      content: 'Suelta los archivos aquí';
+    }
+/*
+    .zona-archivo:hover {
+      transition: 0.2s;
+      background-color: grey;
+      color: white;
+    }
+*/
+  </style>
+</head>
+<body>
+  
+  <div class="zona-archivo">
+    
+  </div>
+
+  <script>
+
+    function zoomIn(zona) {
+      if(!zona.classList.contains('zona-archivo-over'))
+        zona.classList.add('zona-archivo-over');
+    }
+
+    function zoomOut(zona) {
+      if(zona.classList.contains('zona-archivo-over')) {
+        zona.classList.remove('zona-archivo-over');
+        zona.classList.add('zona-archivo-over-out');
+        setTimeout(function(){
+          zona.classList.remove('zona-archivo-over-out');
+        },250);
+      }
+    }
+
+    function pedirArchivo(url, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url);
+      xhr.responseType = 'blob';
+      xhr.send();
+      xhr.onload = function() {
+        callback(xhr.response);
+      };
+    }
+
+    const zona = document.querySelector('.zona-archivo');
+
+    zona.addEventListener('drop', function(e) {
+      
+      e.preventDefault();
+      zoomOut(zona);
+
+      for (let i = 0; i < e.dataTransfer.files.length; i++) {
+        const archivo = e.dataTransfer.files[i];
+        
+        const url = URL.createObjectURL(archivo);
+
+        pedirArchivo(url, function(data){
+          console.log(data);
+        });
+
+      }
+
+    });
+
+    zona.addEventListener('dragover', function(e){
+      e.preventDefault();
+    });
+
+    zona.addEventListener('dragenter', function() {
+      console.log('Entrando');
+      zoomIn(zona)
+    });
+
+    zona.addEventListener('dragleave', function() {
+      console.log('Saliendo');
+      zoomOut(zona);
+    });
+
+  </script>
+
+</body>
+</html>

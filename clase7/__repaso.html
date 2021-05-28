@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    /*
+    // Promesa
+    onclick = function() {        XMLHttpRequest / setTimeout / setInterval
+
+    }
+
+
+    EventTarget                   Promise
+    */
+
+    // async => Sintaxis alternativa para CREAR promesas
+    // await => Sintaxis alternativas para USAR promesas dentro de otra
+    /*
+    async function parseData() {
+
+      const resProductos = await fetch('https://60b0208b1f26610017ffdd2d.mockapi.io/productos')
+      const resDolar = await fetch('https://api.estadisticasbcra.com/usd', {
+        headers: {
+          'Authorization': 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTM2OTE5ODIsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJzZWJhc3RpYW4ubGVkZXNtYTA4QGdtYWlsLmNvbSJ9.YV8WM4aoYFJ6PQ-Yui2l9Ua_gVdHmuFaS1sVwNKfBP5bbOekKb-VU2mnhSKLd7rMnEEuMl8dizdfk700efxO4Q'
+        },
+        'Access-Control-Allow-Origin': '*'
+      })
+
+      const jsonProductos = await resProductos.json();
+      const jsonDolar = await resDolar.json();
+
+      const ultimaCotizacionDolar = Number(jsonDolar[json.length - 1])
+
+      return jsonProductos.map(function(el){
+        const aux = el;
+
+        aux.precio_dolar = Number(aux.precio) / ultimaCotizacionDolar;
+
+        return aux;
+      });
+
+    }
+    */
+
+   async function parseData() {
+      const resProductos = await fetch('https://60b0208b1f26610017ffdd2d.mockapi.io/productos')
+      const precioDolar = 155; // Pendiente hacerlo con EstadisticasBCRA
+
+      const jsonProductos = await resProductos.json();
+
+      return jsonProductos.map(function(el){
+        const aux = el;
+
+        aux.precio_dolar = Number(aux.precio) / precioDolar;
+
+        return aux;
+      });
+   }
+
+    parseData().then(function(productos){
+      console.log(productos);
+    }); 
+
+
+  </script>
+</body>
+</html>

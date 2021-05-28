@@ -1,0 +1,2 @@
+GET https://api.estadisticasbcra.com/usd
+Authorization: BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTM2OTE5ODIsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJzZWJhc3RpYW4ubGVkZXNtYTA4QGdtYWlsLmNvbSJ9.YV8WM4aoYFJ6PQ-Yui2l9Ua_gVdHmuFaS1sVwNKfBP5bbOekKb-VU2mnhSKLd7rMnEEuMl8dizdfk700efxO4Q 
